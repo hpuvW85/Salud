@@ -1,0 +1,710 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tabProgramRunner"
+    android:name="tab_program_runner"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:keepScreenOn="true">
+
+    <LinearLayout
+        android:id="@+id/layoutProgramRunner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:animateLayoutChanges="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="top"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:scrollbars="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:background="@color/sweet_dialog_bg_color_dark">
+        <TextView
+            android:text="@string/program_selection"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <Spinner
+            android:id="@+id/programSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/mi_baseline"
+            android:padding="2dp"
+            style="@style/TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="2dp"
+                android:background="@color/sweet_dialog_bg_color_dark">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:minHeight="30dp">
+
+                    <TextView
+                        android:id="@+id/currentExerciseNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="1"
+                        tools:text="1"
+                        app:layout_constraintEnd_toStartOf="@+id/slash" />
+
+                    <TextView
+                        android:id="@+id/slash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/slash"
+                        app:layout_constraintEnd_toStartOf="@+id/exerciseInProgramNumber" />
+
+                    <TextView
+                        android:id="@+id/exerciseInProgramNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        tools:text="22"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.mazenrashed.dotsindicator.DotsIndicator
+                        android:id="@+id/exerciseIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:dot_height="22dp"
+                        app:dot_width="22dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        app:first_selected_dot_resource="@drawable/pager_box_white_24dp"
+                        app:first_unselected_dot_resource="@drawable/pager_blue_grey_400_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:margins_between_dots="4dp"
+                        app:selected_dot_resource="@drawable/pager_box_white_24dp"
+                        app:unselected_dot_resource="@drawable/pager_blue_grey_400_24dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/imageExerciseThumb"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical|center"
+                        android:src="@drawable/ic_gym_bench_50dp"
+                        app:civ_background_color="@color/record_background_even"
+                        app:civ_border_width="0dp"
+                        app:civ_shadow="false" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/exerciseEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_toStartOf="@+id/exercisesListButton"
+                        android:layout_toEndOf="@+id/imageExerciseThumb"
+                        android:hint="@string/MachineHint"
+                        android:inputType="none"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true" />
+
+                    <ImageButton
+                        android:id="@+id/exercisesListButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:baselineAlignBottom="false"
+                        android:cropToPadding="false"
+                        android:src="@drawable/ic_baseline_list_alt_24px"
+                        android:contentDescription="@string/MachinesLabel" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/bodybuildingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <!-- WEIGHT -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/weightCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="35"
+                android:visibility="visible"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/poidsLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/PoidsLabel" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/poidsEdit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="false"
+                            android:gravity="center"
+                            android:inputType="numberDecimal|numberSigned"
+                            android:label="@string/weightLabel"
+                            android:minEms="3"
+                            tools:labelFor="@id/weightCardView"
+                            tools:text="10" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:orientation="vertical">
+                        <ImageButton
+                            android:id="@+id/saveWeight"
+                            android:visibility="gone"
+                            android:layout_width="17dp"
+                            android:layout_height="17dp"
+                            android:contentDescription="@string/SaveWeightLabel"
+                            android:src="@drawable/baseline_save_yellow_a200_24dp"
+                            android:text="@string/SaveWeightLabel"
+                             />
+
+                        <TextView
+                            android:id="@+id/unitShow"
+                            android:gravity="bottom"
+                            android:layout_gravity="bottom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="kg"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/minMaxLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="10"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="@string/min" />
+
+                        <TextView
+                            android:id="@+id/minText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            tools:text="40 kg" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="5dp"
+                            android:text="@string/max" />
+
+                        <TextView
+                            android:id="@+id/maxText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            tools:text="80 kg" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SETS -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/serieCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="15"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/SerieLabel" />
+
+                    <EditText
+                        android:id="@+id/seriesEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:label="@string/SerieLabel"
+                        android:gravity="center"
+                        android:inputType="number"
+                        tools:text="1"
+                        />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- REPS -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/repetitionCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:visibility="visible"
+                >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/RepetitionLabel_short" />
+
+                    <it.sephiroth.android.library.numberpicker.NumberPicker
+                        android:id="@+id/repsPicker"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        app:picker_max="100"
+                        app:picker_min="0"
+                        app:picker_stepSize="1"
+                        app:picker_tracker="exponential"
+                        app:picker_orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageButton
+                        android:id="@+id/saveReps"
+                        android:visibility="gone"
+                        android:layout_width="17dp"
+                        android:layout_height="17dp"
+                        android:contentDescription="@string/SaveRepsLabel"
+                        android:src="@drawable/baseline_save_yellow_a200_24dp"
+                        android:text="@string/SaveRepsLabel"
+                        />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- SECONDS -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/secondsCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/SecondsLabel_short" />
+
+                    <EditText
+                        android:id="@+id/secondsEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:minEms="2"
+                        android:textSize="18sp"
+                        tools:text="10" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- REST -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/restCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:visibility="visible"
+                >
+                <LinearLayout
+                    android:id="@+id/restTimeLayout"
+                    android:layout_weight="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/restTimeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/restLabel" />
+
+                    <EditText
+                        android:id="@+id/restTimeEdit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="4"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:text="60"
+                        />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- DISTANCE -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/distanceCardView"
+                style="@style/CardViewStyle"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textDistance"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/DistanceLabel" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/distanceEdit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:autofillHints="false"
+                            android:inputType="numberDecimal|numberSigned"
+                            android:minEms="3"
+                            android:hint="@string/DistanceLabel"
+                            tools:text="10" />
+
+                        <Spinner
+                            android:id="@+id/unitDistanceSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/distance_units"
+                            android:minEms="3" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- DURATION -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/durationCardView"
+                style="@style/CardViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textDuration"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/DurationLabel" />
+
+                    <TextView
+                        android:id="@+id/durationEdit"
+                        style="@style/editableTextView"
+                        tools:text="01:23:45">
+
+                    </TextView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <LinearLayout
+                android:id="@+id/notesAndRestLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:layout_gravity="top"
+                >
+
+                <EditText
+                    android:id="@+id/notesInExercise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="@string/NotesLabel"
+                    android:hint="@string/NotesLabel"
+                    android:inputType="text|textMultiLine"
+                    android:layout_gravity="bottom"
+                    android:gravity="top"
+                    android:ems="10"
+                    android:minHeight="18dp"
+                    android:paddingVertical="20dp"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/restControlLayout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/previousExerciseArrow"
+                    style="@style/AddImageButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:contentDescription="@string/arrowPreviousAsText"
+                    android:focusable="true"
+                    android:minHeight="68dp"
+                    android:src="@drawable/round_arrow_back_white_36dp"
+                    android:text="@string/arrowPreviousAsText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.2" />
+
+                <ImageButton
+                    android:id="@+id/failButton"
+                    style="@style/AddImageButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/addButton"
+                    android:layout_toEndOf="@+id/previousExerciseArrow"
+                    android:backgroundTint="@color/redWarn"
+                    android:clickable="true"
+                    android:contentDescription="@string/failedToDoReps"
+                    android:focusable="true"
+                    android:minHeight="68dp"
+                    android:src="@drawable/round_cancel_white_36dp"
+                    android:text="@string/FailLabel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/previousExerciseArrow"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.25" />
+
+                <ImageButton
+                    android:id="@+id/addButton"
+                    style="@style/AddImageButton"
+                    android:backgroundTint="@color/color_green_button"
+                    android:layout_width="0dp"
+                    android:minHeight="68dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@+id/nextExerciseArrow"
+                    android:contentDescription="@string/DoneLabel"
+                    android:src="@drawable/round_check_white_48dp"
+                    android:text="@string/DoneLabel"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/nextExerciseArrow"
+                    app:layout_constraintStart_toEndOf="@+id/failButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:focusable="true" />
+
+                <ImageButton
+                    android:id="@+id/nextExerciseArrow"
+                    style="@style/AddImageButton"
+                    android:src="@drawable/round_arrow_forward_white_36dp"
+                    android:layout_width="0dp"
+                    app:layout_constraintWidth_percent="0.2"
+                    android:minWidth = "64dp"
+                    android:minHeight="68dp"
+                    android:layout_marginEnd="8dp"
+                    android:baselineAlignBottom="false"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@string/arrowNextAsText"
+                    android:text="@string/arrowNextAsText"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:focusable="true" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.devzone.fillprogresslayout.FillProgressLayout
+                android:id="@+id/staticFillBackgroundProgress"
+                android:layout_margin="@dimen/buttons_stroke_width"
+                android:gravity="center"
+                app:fpl_backgroundColor="@color/blue"
+                app:fpl_isRounded="true"
+                app:fpl_progressDirection="top_to_bottom"
+                app:fpl_shouldRestart="false"
+                app:fpl_gradientDirection="bottom_to_top"
+                app:fpl_gradientColors="@array/gradientColorsBlue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/countDownStatic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/click_to_start"
+                    android:textSize="@dimen/mi_button_cta_height" />
+                <ImageButton
+                    android:id="@+id/resetStaticTimerButton"
+                    android:src="@drawable/reset_yellow_400_24dp"
+                    android:layout_marginStart="@dimen/progress_circle_radius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/reset"
+                    android:focusable="true"
+                    android:clickable="true"
+                    />
+            </com.devzone.fillprogresslayout.FillProgressLayout>
+
+            <com.devzone.fillprogresslayout.FillProgressLayout
+                android:id="@+id/restFillBackgroundProgress"
+                android:layout_margin="@dimen/buttons_stroke_width"
+                android:gravity="center"
+                app:fpl_backgroundColor="@color/main_green_stroke_color"
+                app:fpl_isRounded="true"
+                app:fpl_progressDirection="top_to_bottom"
+                app:fpl_shouldRestart="false"
+                app:fpl_gradientDirection="bottom_to_top"
+                app:fpl_gradientColors="@array/gradientColors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/countDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/mi_button_cta_height"
+                    />
+            </com.devzone.fillprogresslayout.FillProgressLayout>
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="3dp"
+                            android:text="@string/TopTenLabel" />
+
+                    </LinearLayout>
+
+
+        <com.easyfitness.utils.ExpandedListView
+            android:id="@+id/recordList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/row_fonte" />
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,10 @@
+[ ] podnieść code version w build.gradle
+[ ] podnieść values/about.xml versie i revision history string
+[ ] wysłać zmiany do githuba.
+[ ] zbudować podspisaną wersję
+[ ] wgrać wersję do github releases https://github.com/senpl/Fit-workout-fast/releases G:\1Proj\fastnfitness\app\release
+[ ] wgrać wersję do playStore i innych G:\1Proj\fastnfitness\app\release
+[ ] obfuscated files from:
+<module- name>/build/outputs/mapping/<build-type>/
+do https://play.google.com/apps/publish/?account=7975913383041629435&noredirect#DeobfuscationMappingFilesPlace:p=com.fitworkoutfast&appid=4974997702853128267
+

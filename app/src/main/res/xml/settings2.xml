@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Unit settings">
+        <androidx.preference.ListPreference
+            android:defaultValue="0"
+            android:entries="@array/weight_units"
+            android:entryValues="@array/fonte_unitsEnum"
+            android:key="defaultUnit"
+            android:summary=""
+            android:title="@string/pref_preferredUnitTitle" />
+
+        <androidx.preference.ListPreference
+            android:defaultValue="0"
+            android:entries="@array/distance_units"
+            android:entryValues="@array/distance_unitsEnum"
+            android:key="defaultDistanceUnit"
+            android:summary=""
+            android:title="@string/pref_preferredDistanceUnitTitle" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_ui_setting">
+        <androidx.preference.ListPreference
+            android:defaultValue="1"
+            android:entries="@array/daynightauto"
+            android:entryValues="@array/daynightauto_enum"
+            android:key="dayNightAuto"
+            android:summary="Dark"
+            android:title="@string/daynightmode_settingtitle" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefShowMP3"
+            android:summary="@string/pref_show_mp3_player_summary"
+            android:title="@string/pref_show_mp3_player" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/programs_settings">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nextExerciseSwitch"
+            android:summary="@string/nextExerciseSwitchDescription"
+            android:title="@string/nextExerciseSwitch" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="swipeGesturesSwitch"
+            android:summary="@string/swipeGesturesDescription"
+            android:title="@string/swipeGesturesSwitch" />
+
+        <EditTextPreference
+            android:defaultValue="5"
+            android:key="staticPreperSecs"
+            android:title="@string/static_prepare_seconds"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/sound_settings">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="playRestSound"
+            android:summary="@string/playRestSoundDescription"
+            android:title="@string/playRestSound" />
+
+
+        <Preference android:key="dialog_rest_sound"
+            android:title="@string/chooseRestSound"/>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="playStaticExerciseFinishSound"
+            android:summary="@string/playStaticExerciseFinishSoundDescription"
+            android:title="@string/playStaticExerciseFinishSound" />
+
+        <Preference android:key="dialog_static_sound"
+            android:title="@string/chooseStaticSound"/>
+    </PreferenceCategory>
+</PreferenceScreen>
